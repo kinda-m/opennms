@@ -47,7 +47,7 @@
     <dependency>
       <groupId>org.opennms.smoke</groupId>
       <artifactId>org.opennms.smoke.test-api</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
+      <version>1.0.0</version>
     </dependency>
   </dependencies>
 </project>
