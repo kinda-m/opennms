@@ -12,7 +12,7 @@
   <name>OpenNMS :: Features :: Measurements</name>
   <modules>
     <module>api</module>
-    <module>strategies</module>
+    <module>impl</module>
     <module>rest</module>
   </modules>
 </project>

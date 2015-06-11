@@ -25,10 +25,10 @@
       <artifactId>opennms-dao</artifactId>
     </dependency>
 
-    <!-- Measurements Strategies -->
+    <!-- Measurements API Implementations -->
     <dependency>
       <groupId>org.opennms.features.measurements</groupId>
-      <artifactId>org.opennms.features.measurements.strategies</artifactId>
+      <artifactId>org.opennms.features.measurements.impl</artifactId>
       <version>${project.version}</version>
     </dependency>
 

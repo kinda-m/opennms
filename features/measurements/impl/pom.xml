@@ -7,9 +7,9 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.opennms.features.measurements</groupId>
-  <artifactId>org.opennms.features.measurements.strategies</artifactId>
+  <artifactId>org.opennms.features.measurements.impl</artifactId>
   <packaging>jar</packaging>
-  <name>OpenNMS :: Features :: Measurements :: Strategies</name>
+  <name>OpenNMS :: Features :: Measurements :: Implementation</name>
   <dependencies>
     <!-- Core -->
     <dependency>
