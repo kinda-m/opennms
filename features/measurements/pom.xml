@@ -11,6 +11,8 @@
   <packaging>pom</packaging>
   <name>OpenNMS :: Features :: Measurements</name>
   <modules>
+    <module>api</module>
+    <module>strategies</module>
     <module>rest</module>
   </modules>
 </project>
