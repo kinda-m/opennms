@@ -46,8 +46,6 @@ public class MeasurementFetchStrategyFactory implements ApplicationContextAware 
 
     private static final Logger LOG = LoggerFactory.getLogger(MeasurementFetchStrategyFactory.class);
 
-    private static final String RRD_STRATEGY_CLASS_PROPERTY = "org.opennms.rrd.strategyClass";
-
     private ApplicationContext m_context;
 
     @Override
@@ -56,7 +54,7 @@ public class MeasurementFetchStrategyFactory implements ApplicationContextAware 
     }
 
 	public MeasurementFetchStrategy getFetchStrategy() {
-	    final String rrdStrategyClass = System.getProperty(RRD_STRATEGY_CLASS_PROPERTY, RrdConfig.DEFAULT_RRD_STRATEGY_CLASS);
+	    final String rrdStrategyClass = System.getProperty(RrdConfig.RRD_STRATEGY_CLASS_PROPERTY, RrdConfig.DEFAULT_RRD_STRATEGY_CLASS);
 	    for (MeasurementFetchStrategy fetchStrategy : m_context.getBeansOfType(MeasurementFetchStrategy.class).values()) {
 	        if (fetchStrategy.supportsRrdStrategy(rrdStrategyClass)) {
 	            return fetchStrategy;
