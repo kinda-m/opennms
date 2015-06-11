@@ -22,6 +22,12 @@
       <artifactId>guava</artifactId>
     </dependency>
 
+    <!-- RRD -->
+    <dependency>
+      <groupId>org.opennms</groupId>
+      <artifactId>opennms-rrdtool-api</artifactId>
+    </dependency>
+
     <!-- Testing -->
     <dependency>
       <groupId>org.opennms.core.test-api</groupId>

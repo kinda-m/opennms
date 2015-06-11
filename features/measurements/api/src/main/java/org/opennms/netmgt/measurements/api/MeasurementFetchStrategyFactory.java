@@ -29,6 +29,7 @@
 package org.opennms.netmgt.measurements.api;
 
 import org.opennms.netmgt.measurements.impl.NullFetchStrategy;
+import org.opennms.netmgt.rrd.RrdConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -55,7 +56,7 @@ public class MeasurementFetchStrategyFactory implements ApplicationContextAware 
     }
 
 	public MeasurementFetchStrategy getFetchStrategy() {
-	    final String rrdStrategyClass = System.getProperty(RRD_STRATEGY_CLASS_PROPERTY);
+	    final String rrdStrategyClass = System.getProperty(RRD_STRATEGY_CLASS_PROPERTY, RrdConfig.DEFAULT_RRD_STRATEGY_CLASS);
 	    for (MeasurementFetchStrategy fetchStrategy : m_context.getBeansOfType(MeasurementFetchStrategy.class).values()) {
 	        if (fetchStrategy.supportsRrdStrategy(rrdStrategyClass)) {
 	            return fetchStrategy;
