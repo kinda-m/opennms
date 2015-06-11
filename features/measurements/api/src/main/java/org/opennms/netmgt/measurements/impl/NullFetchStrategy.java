@@ -45,16 +45,6 @@ public class NullFetchStrategy implements MeasurementFetchStrategy {
      * {@inheritDoc}
      */
     @Override
-    public boolean supportsRrdStrategy(String rrdStrategyClass) {
-        // Technically we support any strategy, but we don't want the
-        // factory to automatically choose this one
-        return false;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     public FetchResults fetch(long start, long end, long step, int maxrows,
             List<Source> sources) throws Exception {
         return null;

@@ -28,40 +28,40 @@
 
 package org.opennms.netmgt.measurements.api;
 
+import java.util.ServiceLoader;
+
 import org.opennms.netmgt.measurements.impl.NullFetchStrategy;
 import org.opennms.netmgt.rrd.RrdConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.annotation.Bean;
 
 /**
- * Used to instantiate a fetch strategy based on the
- * current persistence strategy.
+ * Used to instantiate the appropriate fetch strategy. 
+ *
+ * The appropriate strategy is determined by querying
+ * all of the available {@link org.opennms.netmgt.measurements.api.MeasurementFetchStrategyProvider}
+ * registered via the ServiceLoader.
  *
  * @author Jesse White <jesse@opennms.org>
- * @author Dustin Frisch <fooker@lab.sh>
  */
-public class MeasurementFetchStrategyFactory implements ApplicationContextAware {
+public class MeasurementFetchStrategyFactory {
 
     private static final Logger LOG = LoggerFactory.getLogger(MeasurementFetchStrategyFactory.class);
 
-    private ApplicationContext m_context;
+    private static ServiceLoader<MeasurementFetchStrategyProvider> providerLoader = ServiceLoader.load(MeasurementFetchStrategyProvider.class);
 
-    @Override
-    public void setApplicationContext(ApplicationContext context) {
-        m_context = context;
-    }
-
-	public MeasurementFetchStrategy getFetchStrategy() {
-	    final String rrdStrategyClass = System.getProperty(RrdConfig.RRD_STRATEGY_CLASS_PROPERTY, RrdConfig.DEFAULT_RRD_STRATEGY_CLASS);
-	    for (MeasurementFetchStrategy fetchStrategy : m_context.getBeansOfType(MeasurementFetchStrategy.class).values()) {
-	        if (fetchStrategy.supportsRrdStrategy(rrdStrategyClass)) {
-	            return fetchStrategy;
-	        }
-	    }
+    @Bean(name="measurementFetchStrategy")
+    public MeasurementFetchStrategy getStrategy() throws InstantiationException, IllegalAccessException {
+        final String rrdStrategyClass = System.getProperty(RrdConfig.RRD_STRATEGY_CLASS_PROPERTY, RrdConfig.DEFAULT_RRD_STRATEGY_CLASS);
+        for (MeasurementFetchStrategyProvider provider : providerLoader) {
+            Class<? extends MeasurementFetchStrategy> strategy = provider.getStrategyClass(rrdStrategyClass);
+            if (strategy != null) {
+                return strategy.newInstance();
+            }
+        }
 
         LOG.error("No supported fetch strategy found for {}. Defaulting to NullFetchStrategy.", rrdStrategyClass);
         return new NullFetchStrategy();
-	}
+    }
 }

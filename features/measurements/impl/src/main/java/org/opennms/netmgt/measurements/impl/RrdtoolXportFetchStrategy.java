@@ -48,7 +48,6 @@ import org.opennms.netmgt.measurements.api.FetchResults;
 import org.opennms.netmgt.measurements.model.Source;
 import org.opennms.netmgt.rrd.model.RrdXport;
 import org.opennms.netmgt.rrd.model.XRow;
-import org.opennms.netmgt.rrd.rrdtool.JniRrdStrategy;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
@@ -73,14 +72,6 @@ public class RrdtoolXportFetchStrategy extends AbstractRrdBasedFetchStrategy {
      * throwing an exception.
      */
     public static final long XPORT_TIMEOUT_MS = 120000;
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean supportsRrdStrategy(String rrdStrategyClass) {
-        return JniRrdStrategy.class.getCanonicalName().equals(rrdStrategyClass);
-    }
 
     /**
      * {@inheritDoc}

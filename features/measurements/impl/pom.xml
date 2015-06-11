@@ -9,7 +9,7 @@
   <groupId>org.opennms.features.measurements</groupId>
   <artifactId>org.opennms.features.measurements.impl</artifactId>
   <packaging>jar</packaging>
-  <name>OpenNMS :: Features :: Measurements :: Implementation</name>
+  <name>OpenNMS :: Features :: Measurements :: Impl.</name>
   <dependencies>
     <!-- Core -->
     <dependency>

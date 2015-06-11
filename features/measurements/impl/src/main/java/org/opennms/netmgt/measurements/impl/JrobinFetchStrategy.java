@@ -35,7 +35,6 @@ import org.jrobin.core.RrdException;
 import org.jrobin.data.DataProcessor;
 import org.opennms.netmgt.measurements.api.FetchResults;
 import org.opennms.netmgt.measurements.model.Source;
-import org.opennms.netmgt.rrd.jrobin.JRobinRrdStrategy;
 
 import com.google.common.collect.Maps;
 
@@ -46,14 +45,6 @@ import com.google.common.collect.Maps;
  * @author Dustin Frisch <fooker@lab.sh>
  */
 public class JrobinFetchStrategy extends AbstractRrdBasedFetchStrategy {
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean supportsRrdStrategy(String rrdStrategyClass) {
-        return JRobinRrdStrategy.class.getCanonicalName().equals(rrdStrategyClass);
-    }
 
     /**
      * {@inheritDoc}
