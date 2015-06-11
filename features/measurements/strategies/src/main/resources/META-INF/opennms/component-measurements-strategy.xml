@@ -10,8 +10,8 @@
 
   <context:annotation-config />
 
-  <bean id="jrobinFetchStrategy" class="org.opennms.web.rest.measurements.fetch.JrobinFetchStrategy"/>
+  <bean id="jrobinFetchStrategy" class="org.opennms.netmgt.measurements.impl.JrobinFetchStrategy"/>
 
-  <bean id="rrdtoolXportFetchStrategy" class="org.opennms.web.rest.measurements.fetch.RrdtoolXportFetchStrategy"/>
+  <bean id="rrdtoolXportFetchStrategy" class="org.opennms.netmgt.measurements.impl.RrdtoolXportFetchStrategy"/>
 
 </beans>

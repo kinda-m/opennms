@@ -39,11 +39,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.opennms.core.test.OpenNMSJUnit4ClassRunner;
 import org.opennms.core.test.db.annotations.JUnitTemporaryDatabase;
+import org.opennms.netmgt.measurements.model.Expression;
+import org.opennms.netmgt.measurements.model.QueryRequest;
+import org.opennms.netmgt.measurements.model.QueryResponse;
+import org.opennms.netmgt.measurements.model.Source;
 import org.opennms.test.JUnitConfigurationEnvironment;
-import org.opennms.web.rest.measurements.model.Expression;
-import org.opennms.web.rest.measurements.model.QueryRequest;
-import org.opennms.web.rest.measurements.model.QueryResponse;
-import org.opennms.web.rest.measurements.model.Source;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -16,13 +16,13 @@
   <!-- Extension point for MeasurementFetchStrategy implementations -->
   <import resource="classpath*:/META-INF/opennms/component-measurements-strategy.xml" />
 
-  <bean id="measurementFetchStrategyFactory" class="org.opennms.web.rest.measurements.fetch.MeasurementFetchStrategyFactory"/>
+  <bean id="measurementFetchStrategyFactory" class="org.opennms.netmgt.measurements.api.MeasurementFetchStrategyFactory"/>
 
   <bean id="measurementFetchStrategy" primary="true" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
     <property name="targetObject" ref="measurementFetchStrategyFactory"/>
     <property name="targetMethod" value="getFetchStrategy"/>
   </bean>
 
-  <onmsgi:service interface="org.opennms.web.rest.measurements.fetch.MeasurementFetchStrategy" ref="measurementFetchStrategy"/>
+  <onmsgi:service interface="org.opennms.netmgt.measurements.api.MeasurementFetchStrategy" ref="measurementFetchStrategy"/>
 
 </beans>

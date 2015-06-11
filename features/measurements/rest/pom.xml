@@ -38,10 +38,6 @@
       <artifactId>jersey-dependencies</artifactId>
       <type>pom</type>
     </dependency>
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-jexl</artifactId>
-    </dependency>
 
     <!-- Testing -->
     <dependency>

@@ -12,9 +12,9 @@ import org.opennms.core.spring.BeanUtils;
 import org.opennms.netmgt.dao.api.NodeDao;
 import org.opennms.netmgt.dao.support.DefaultResourceDao;
 import org.opennms.netmgt.dao.support.FilesystemResourceStorageDao;
+import org.opennms.netmgt.measurements.model.QueryRequest;
+import org.opennms.netmgt.measurements.model.Source;
 import org.opennms.netmgt.model.OnmsNode;
-import org.opennms.web.rest.measurements.model.QueryRequest;
-import org.opennms.web.rest.measurements.model.Source;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.google.common.collect.Lists;
