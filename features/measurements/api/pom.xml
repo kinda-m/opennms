@@ -25,7 +25,7 @@
     <!-- RRD -->
     <dependency>
       <groupId>org.opennms</groupId>
-      <artifactId>opennms-rrdtool-api</artifactId>
+      <artifactId>opennms-rrd-api</artifactId>
     </dependency>
 
     <!-- Testing -->
